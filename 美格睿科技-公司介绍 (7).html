@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megreen 美格睿科技</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #fff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #4F46E5 0%, #9333EA 50%, #EC4899 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .brand-name {
+            font-family: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            margin-bottom: 15px;
+            color: #fff;
+            animation: megreenGlow 6s ease-in-out infinite;
+        }
+        
+        @keyframes megreenGlow {
+            0%, 50% {
+                color: #fff;
+                text-shadow: none;
+                transform: scale(1);
+                filter: blur(0px);
+            }
+            15% {
+                color: transparent;
+                background: linear-gradient(135deg, #4F46E5, #9333EA, #EC4899, #4F46E5);
+                background-size: 300% 300%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                text-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+                transform: scale(1.05);
+                filter: blur(0px);
+                animation: gradientMove 1.5s ease-in-out;
+            }
+            25% {
+                color: #fff;
+                background: linear-gradient(135deg, #4F46E5, #9333EA, #EC4899);
+                -webkit-background-clip: text;
+                background-clip: text;
+                text-shadow: 0 0 30px rgba(236, 72, 153, 0.8), 0 0 60px rgba(147, 51, 234, 0.6);
+                transform: scale(1.08);
+                filter: blur(0.5px);
+            }
+            35% {
+                color: #fff;
+                background: linear-gradient(135deg, #EC4899, #9333EA, #4F46E5);
+                -webkit-background-clip: text;
+                background-clip: text;
+                text-shadow: 0 0 40px rgba(79, 70, 229, 0.9), 0 0 80px rgba(236, 72, 153, 0.7);
+                transform: scale(1.1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Section */
+        .section {
+            padding: 80px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        
+        /* Services */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .services .service:last-child {
+            grid-column: span 2;
+            max-width: 50%;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .services {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .service {
+            padding: 40px;
+            background: #fafafa;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        
+        .service:hover {
+            background: #f0f0f0;
+        }
+        
+        .service h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #4F46E5, #9333EA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .service p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        
+        /* Projects */
+        .projects-section {
+            background: #fafafa;
+            padding: 80px 40px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .project {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .project h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #4F46E5, #9333EA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: linear-gradient(135deg, #4F46E5, #9333EA);
+            color: #fff;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .project p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+            padding: 60px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4F46E5, #9333EA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        /* Contact */
+        .contact {
+            background: #fff;
+            color: #1a1a1a;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .team-member {
+            padding: 30px 20px;
+        }
+        
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+        
+        .team-member h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, #4F46E5, #9333EA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .member-role {
+            display: block;
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 15px;
+        }
+        
+        .team-member p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* GEO Detail */
+        .geo-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .geo-highlight {
+            font-size: 1.15rem;
+            color: #1a1a1a;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .geo-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .geo-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .geo-feature {
+            padding: 30px;
+            background: #fafafa;
+            border-radius: 8px;
+        }
+        
+        .geo-feature h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #4F46E5, #9333EA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .geo-feature p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .contact {
+            background: #fff;
+            color: #1a1a1a;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .contact-logo {
+            width: 80px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        
+        .contact h2 {
+            display: none;
+        }
+        
+        .contact .company-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        
+        .contact .email {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .contact .email a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 30px 40px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="brand-name">Megreen</h1>
+            <p>电商全案运营 · 品牌出海服务</p>
+        </div>
+    </div>
+    
+    <!-- Stats -->
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-number">25+</div>
+            <div class="stat-label">专业团队</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">3600万</div>
+            <div class="stat-label">年GMV</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">7年</div>
+            <div class="stat-label">行业深耕</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">合作品牌</div>
+        </div>
+    </div>
+    
+    <!-- Services -->
+    <div class="section">
+        <h2 class="section-title">服务能力</h2>
+        <div class="services">
+            <div class="service">
+                <h3>全渠道电商运营</h3>
+                <p>抖音、天猫、京东、小红书全渠道运营能力。从品牌定位、店铺搭建、内容策划到直播带货，提供一站式电商解决方案。</p>
+            </div>
+            <div class="service">
+                <h3>品牌出海服务</h3>
+                <p>专注拉美、欧美市场，提供海外市场调研、本地化运营、跨境物流、海外仓管理全链路服务。墨西哥本地店运营经验成熟。</p>
+            </div>
+            <div class="service">
+                <h3>GEO生成式引擎优化</h3>
+                <p>AI时代品牌营销新赛道。让品牌信息优先出现在AI搜索答案中，抢占用户决策入口。已服务出门问问、圣特拉慕、绿联等上市公司客户。</p>
+            </div>
+            <div class="service">
+                <h3>新媒体内容营销</h3>
+                <p>抖音、小红书、视频号全平台内容运营能力。精准定位目标用户，打造爆款内容，实现品牌声量与销量双增长。</p>
+            </div>
+            <div class="service">
+                <h3>明星达人资源整合</h3>
+                <p>300+明星达人资源库，覆盖30万-3000万粉丝量级。提供直播带货、短视频合作、品牌代言、线下活动等全链路整合服务。</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Advantages -->
+    <div class="projects-section">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 class="section-title">服务优势</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <h4>团队配置齐全</h4>
+                    <span class="tag">25人团队</span>
+                    <p>运营、主播、投手、内容核心岗位齐备，团队结构成熟稳定。</p>
+                </div>
+                <div class="project">
+                    <h4>多平台运营经验</h4>
+                    <span class="tag">全渠道覆盖</span>
+                    <p>抖音、天猫、京东、小红书、跨境电商，多平台运营方法论成熟。</p>
+                </div>
+                <div class="project">
+                    <h4>GEO差异化优势</h4>
+                    <span class="tag">AI推荐优化</span>
+                    <p>优化"自然推荐"不靠买位置，做电商转化追踪往ROI方向努力，已服务上市公司验证效果。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- GEO Detail -->
+    <div class="section">
+        <h2 class="section-title">GEO业务详情</h2>
+        <div class="geo-intro">
+            <p class="geo-highlight">AI回答时先提到谁、推荐谁，会直接影响用户最后买谁。我们做的事就是让AI在回答的时候，偏向我们的客户。</p>
+        </div>
+        <div class="geo-features">
+            <div class="geo-feature">
+                <h4>用户习惯在变</h4>
+                <p>以前纠结买啥去小红书搜、去知乎看测评，现在直接问AI，AI说啥就信啥。</p>
+            </div>
+            <div class="geo-feature">
+                <h4>早期红利窗口</h4>
+                <p>大部分品牌还没意识到这事，等大家都反应过来，位置早被占完了。</p>
+            </div>
+            <div class="geo-feature">
+                <h4>影响决策而非曝光</h4>
+                <p>用户问AI对比A和B，AI说B好，用户就去买B了。这不是流量，是决策倾向。</p>
+            </div>
+            <div class="geo-feature">
+                <h4>已验证的效果</h4>
+                <p>已服务出门问问、圣特拉慕、绿联等上市公司，客户年营销投放2-3亿。</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Team -->
+    <div class="section">
+        <h2 class="section-title">核心团队</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <h4>创始人</h4>
+                <span class="member-role">CEO</span>
+                <p>7年电商行业深耕，专注品牌运营与出海战略布局。</p>
+            </div>
+            <div class="team-member">
+                <h4>运营总监</h4>
+                <span class="member-role">运营团队负责人</span>
+                <p>操盘多个千万级GMV项目，精通全平台运营策略。</p>
+            </div>
+            <div class="team-member">
+                <h4>内容总监</h4>
+                <span class="member-role">内容团队负责人</span>
+                <p>深耕新媒体内容营销，打造多款爆款内容案例。</p>
+            </div>
+            <div class="team-member">
+                <h4>出海负责人</h4>
+                <span class="member-role">海外业务总监</span>
+                <p>主导墨西哥本地店运营，跨境电商全链路实战经验。</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact -->
+    <div class="contact">
+        <img class="contact-logo" src="logo.png" alt="Megreen">
+        <div class="company-name">美格睿科技</div>
+        <div class="email"><a href="mailto:mgr2020@163.com">mgr2020@163.com</a></div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        © 2026 Megreen Technology. All rights reserved.
+    </div>
+    
+</body>
+</html>
