@@ -51,43 +51,60 @@
                 color: #fff;
                 text-shadow: none;
                 transform: scale(1);
+                letter-spacing: 6px;
                 filter: blur(0px);
             }
-            15% {
+            55% {
                 color: transparent;
                 background: linear-gradient(135deg, #4F46E5, #9333EA, #EC4899, #4F46E5);
-                background-size: 300% 300%;
+                background-size: 400% 400%;
                 -webkit-background-clip: text;
                 background-clip: text;
-                text-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
-                transform: scale(1.05);
+                text-shadow: 0 0 30px rgba(147, 51, 234, 0.8);
+                transform: scale(1.5);
+                letter-spacing: 15px;
                 filter: blur(0px);
-                animation: gradientMove 1.5s ease-in-out;
             }
-            25% {
-                color: #fff;
-                background: linear-gradient(135deg, #4F46E5, #9333EA, #EC4899);
-                -webkit-background-clip: text;
-                background-clip: text;
-                text-shadow: 0 0 30px rgba(236, 72, 153, 0.8), 0 0 60px rgba(147, 51, 234, 0.6);
-                transform: scale(1.08);
-                filter: blur(0.5px);
-            }
-            35% {
-                color: #fff;
+            65% {
+                color: transparent;
                 background: linear-gradient(135deg, #EC4899, #9333EA, #4F46E5);
+                background-size: 400% 400%;
                 -webkit-background-clip: text;
                 background-clip: text;
-                text-shadow: 0 0 40px rgba(79, 70, 229, 0.9), 0 0 80px rgba(236, 72, 153, 0.7);
-                transform: scale(1.1);
+                text-shadow: 0 0 50px rgba(236, 72, 153, 1), 0 0 100px rgba(147, 51, 234, 0.8);
+                transform: scale(2.2);
+                letter-spacing: 30px;
+                filter: blur(1px);
+            }
+            75% {
+                color: transparent;
+                background: linear-gradient(135deg, #4F46E5, #EC4899, #9333EA);
+                background-size: 400% 400%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                text-shadow: 0 0 70px rgba(79, 70, 229, 1), 0 0 140px rgba(236, 72, 153, 0.9);
+                transform: scale(3);
+                letter-spacing: 50px;
                 filter: blur(0px);
             }
-        }
-        
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            85% {
+                color: transparent;
+                background: linear-gradient(135deg, #9333EA, #EC4899, #4F46E5);
+                background-size: 400% 400%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                text-shadow: 0 0 50px rgba(147, 51, 234, 0.9), 0 0 100px rgba(79, 70, 229, 0.7);
+                transform: scale(2);
+                letter-spacing: 25px;
+                filter: blur(1px);
+            }
+            95% {
+                color: #fff;
+                text-shadow: 0 0 20px rgba(236, 72, 153, 0.6);
+                transform: scale(1.2);
+                letter-spacing: 10px;
+                filter: blur(0px);
+            }
         }
         
         .hero p {
@@ -135,6 +152,27 @@
             .services {
                 grid-template-columns: 1fr;
             }
+            
+            .services .service:last-child {
+                grid-column: span 1;
+                max-width: 100%;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .geo-features {
+                grid-template-columns: 1fr;
+            }
         }
         
         .service {
@@ -176,12 +214,6 @@
             gap: 30px;
             max-width: 1000px;
             margin: 0 auto;
-        }
-        
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
         }
         
         .project {
@@ -226,12 +258,6 @@
             margin: 0 auto;
         }
         
-        @media (max-width: 768px) {
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
@@ -261,12 +287,6 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
         
         .team-member {
@@ -322,12 +342,6 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 40px;
-        }
-        
-        @media (max-width: 768px) {
-            .geo-features {
-                grid-template-columns: 1fr;
-            }
         }
         
         .geo-feature {
@@ -531,7 +545,7 @@
     
     <!-- Contact -->
     <div class="contact">
-        <img class="contact-logo" src="logo.png">
+        <img class="contact-logo" src="logo.png" alt="Megreen">
         <div class="company-name">美格睿科技</div>
         <div class="email"><a href="mailto:mgr2020@163.com">mgr2020@163.com</a></div>
     </div>
